@@ -11,8 +11,8 @@ function App() {
 
     const newTask = {
       text: task,
-      priority: priority,
-      dueDate: dueDate,
+      priority,
+      dueDate,
       completed: false,
     }
 
@@ -40,26 +40,52 @@ function App() {
     setTasks(updatedTasks)
   }
 
+  const getPriorityColor = (priority) => {
+    if (priority === "High") return "#ff4d4d"
+    if (priority === "Medium") return "#ffaa00"
+    return "#00cc66"
+  }
+
   return (
     <div
       style={{
+        minHeight: "100vh",
+        background:
+          "linear-gradient(to right, #141e30, #243b55)",
         padding: "40px",
         fontFamily: "Arial",
-        textAlign: "center",
+        color: "white",
       }}
     >
-      <h1>TaskFlow 🚀</h1>
+      <h1
+        style={{
+          textAlign: "center",
+          fontSize: "50px",
+          marginBottom: "30px",
+        }}
+      >
+        TaskFlow 🚀
+      </h1>
 
-      <div style={{ marginBottom: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "10px",
+          flexWrap: "wrap",
+          marginBottom: "30px",
+        }}
+      >
         <input
           type="text"
           placeholder="Enter a task"
           value={task}
           onChange={(e) => setTask(e.target.value)}
           style={{
-            padding: "10px",
-            width: "220px",
-            marginRight: "10px",
+            padding: "12px",
+            width: "250px",
+            borderRadius: "10px",
+            border: "none",
           }}
         />
 
@@ -69,8 +95,9 @@ function App() {
             setPriority(e.target.value)
           }
           style={{
-            padding: "10px",
-            marginRight: "10px",
+            padding: "12px",
+            borderRadius: "10px",
+            border: "none",
           }}
         >
           <option>High</option>
@@ -85,63 +112,88 @@ function App() {
             setDueDate(e.target.value)
           }
           style={{
-            padding: "10px",
-            marginRight: "10px",
+            padding: "12px",
+            borderRadius: "10px",
+            border: "none",
           }}
         />
 
         <button
           onClick={addTask}
           style={{
-            padding: "10px 20px",
+            padding: "12px 20px",
+            borderRadius: "10px",
+            border: "none",
+            backgroundColor: "#00bfff",
+            color: "white",
             cursor: "pointer",
+            fontWeight: "bold",
           }}
         >
-          Add
+          Add Task
         </button>
       </div>
 
-      <ul
+      <div
         style={{
-          listStyle: "none",
-          padding: 0,
+          maxWidth: "700px",
+          margin: "auto",
         }}
       >
         {tasks.map((item, index) => (
-          <li
+          <div
             key={index}
             style={{
-              marginBottom: "15px",
-              border: "1px solid gray",
-              padding: "15px",
-              borderRadius: "10px",
+              background: "#ffffff15",
+              padding: "20px",
+              borderRadius: "15px",
+              marginBottom: "20px",
+              boxShadow:
+                "0 4px 10px rgba(0,0,0,0.3)",
             }}
           >
-            <div
+            <h2
               style={{
                 textDecoration: item.completed
                   ? "line-through"
                   : "none",
-                fontWeight: "bold",
-                marginBottom: "8px",
               }}
             >
               {item.text}
-            </div>
+            </h2>
 
-            <div style={{ marginBottom: "8px" }}>
-              Priority: {item.priority}
-            </div>
+            <p>
+              Priority:
+              <span
+                style={{
+                  color: getPriorityColor(
+                    item.priority
+                  ),
+                  fontWeight: "bold",
+                  marginLeft: "5px",
+                }}
+              >
+                {item.priority}
+              </span>
+            </p>
 
-            <div style={{ marginBottom: "10px" }}>
-              Due Date: {item.dueDate || "Not set"}
-            </div>
+            <p>
+              Due Date:{" "}
+              {item.dueDate || "Not set"}
+            </p>
 
             <button
-              onClick={() => toggleComplete(index)}
+              onClick={() =>
+                toggleComplete(index)
+              }
               style={{
                 marginRight: "10px",
-                padding: "5px 10px",
+                padding: "8px 14px",
+                borderRadius: "8px",
+                border: "none",
+                backgroundColor: "#00cc66",
+                color: "white",
+                cursor: "pointer",
               }}
             >
               {item.completed
@@ -152,14 +204,19 @@ function App() {
             <button
               onClick={() => deleteTask(index)}
               style={{
-                padding: "5px 10px",
+                padding: "8px 14px",
+                borderRadius: "8px",
+                border: "none",
+                backgroundColor: "#ff4d4d",
+                color: "white",
+                cursor: "pointer",
               }}
             >
               Delete
             </button>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   )
 }
