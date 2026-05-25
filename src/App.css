@@ -34,10 +34,22 @@ h1 {
   font-size: 18px;
   color: #555;
   outline: none;
+  box-sizing: border-box;
 }
 
 .task-input input[type="text"] {
   width: 280px;
+}
+
+.task-input input[type="date"] {
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  background: #f7e9ef;
+  font-size: 18px;
+  color: #555;
+  outline: none;
+  box-sizing: border-box;
 }
 
 .task-input button {
@@ -127,20 +139,11 @@ h1 {
   text-decoration: line-through;
 }
 
-/* FIX FOR MOBILE DATE ICON */
-
-input[type="date"] {
-  color: #555;
-  background: #f7e9ef;
-}
-
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 1;
-  filter: invert(1);
+  filter: invert(0.4);
   cursor: pointer;
 }
-
-/* MOBILE RESPONSIVE */
 
 @media (max-width: 600px) {
   h1 {
@@ -150,33 +153,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .task-input {
     flex-direction: column;
     align-items: center;
+    gap: 12px;
   }
 
   .task-input input,
   .task-input select,
-  .task-input button {
-    width: 85%;
+  .task-input button,
+  .task-input input[type="date"] {
+    width: 85% !important;
     max-width: 320px;
+    box-sizing: border-box;
   }
 
   .task-card {
     width: 90%;
   }
-}
-.date-input {
-  width: 100%;
-  padding: 16px;
-  border: none;
-  border-radius: 20px;
-  background: #f5e8ef;
-  color: #444;
-  font-size: 16px;
-  outline: none;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-.date-input::-webkit-calendar-picker-indicator {
-  filter: invert(0.4);
-  cursor: pointer;
 }
