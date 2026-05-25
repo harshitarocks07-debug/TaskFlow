@@ -1,5 +1,7 @@
 # TaskFlow 🚀
 
+![TaskFlow Screenshot](TaskFlow.jpeg)
+
 TaskFlow is a modern To-Do application built using React and Vite.
 
 The application helps users manage tasks efficiently with:
