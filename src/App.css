@@ -17,7 +17,7 @@ body {
 }
 
 /* DARK MODE */
-.dark .sidebar { background: rgba(255, 255, 255, 0.05); box-shadow: 3px 0 20px rgba(0,0,0,0.4); }
+.dark .sidebar { background: rgba(255,255,255,0.05); box-shadow: 3px 0 20px rgba(0,0,0,0.4); }
 .dark .sidebar-title { color: #ddd; }
 .dark .filter-btn { background: rgba(255,255,255,0.08); color: #ccc; }
 .dark .filter-btn:hover { background: rgba(255,255,255,0.15); }
@@ -38,6 +38,9 @@ body {
 .dark .cat-input { background: rgba(255,255,255,0.1); color: #eee; }
 .dark .task-card.overdue { background: rgba(255,100,100,0.1); }
 .dark .notes-area { background: rgba(255,255,255,0.08); color: #ddd; }
+.dark .diary-area { background: rgba(255,255,255,0.05); color: #eee; border-color: rgba(255,255,255,0.1); }
+.dark .modal { background: #1e1e2e; color: #eee; }
+.dark .modal-header h2 { color: #eee; }
 
 /* SIDEBAR */
 .sidebar {
@@ -216,6 +219,99 @@ body {
 
 .dark-mode-btn:hover { transform: scale(1.1); }
 .dark .dark-mode-btn { background: rgba(255,255,255,0.1); }
+
+/* DIARY BUTTON */
+.diary-btn {
+  position: absolute;
+  top: 75px;
+  right: 25px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.35);
+  font-size: 22px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diary-btn:hover { transform: scale(1.1); }
+.dark .diary-btn { background: rgba(255,255,255,0.1); }
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  width: 90%;
+  max-width: 550px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.modal-header h2 { font-size: 24px; color: #333; }
+
+.modal-close {
+  background: rgba(0,0,0,0.1);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal-close:hover { background: #ff5252; color: white; }
+
+.modal-date {
+  color: #aaa;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.diary-area {
+  width: 100%;
+  height: 300px;
+  padding: 16px;
+  border: 2px solid rgba(0,0,0,0.1);
+  border-radius: 16px;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  outline: none;
+  resize: none;
+  color: #444;
+  background: #fafafa;
+  transition: border 0.3s;
+}
+
+.diary-area:focus { border-color: #ff4f9a; }
 
 /* MAIN APP */
 .app {
@@ -604,4 +700,5 @@ input[type="date"]::-webkit-calendar-picker-indicator { opacity: 1; filter: inve
   .toolbar { flex-direction: column; align-items: center; }
   .sort-btn { width: 90%; max-width: 340px; }
   .dark-mode-btn { top: 15px; right: 15px; width: 40px; height: 40px; font-size: 18px; }
+  .diary-btn { top: 65px; right: 15px; width: 40px; height: 40px; font-size: 18px; }
 }

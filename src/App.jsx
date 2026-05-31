@@ -24,6 +24,7 @@ function App() {
   const [filter, setFilter] = useState("All");
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [search, setSearch] = useState("");
+  const [notes, setNotes] = useState(() => localStorage.getItem("notes") || "");
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "Pink");
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");
   const [sortByDate, setSortByDate] = useState(false);
@@ -44,6 +45,7 @@ function App() {
 
   useEffect(() => { localStorage.setItem("tasks", JSON.stringify(tasks)); }, [tasks]);
   useEffect(() => { localStorage.setItem("categories", JSON.stringify(categories)); }, [categories]);
+  useEffect(() => { localStorage.setItem("notes", notes); }, [notes]);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -253,6 +255,26 @@ function App() {
           />
           <button className="add-cat-btn" onClick={addCategory} style={{ background: accent }}>+</button>
         </div>
+
+        <hr className="sidebar-divider" />
+
+<h2 className="sidebar-title">📝 Notes</h2>
+<textarea
+  className="notes-area"
+  placeholder="Write notes, timetable..."
+  value={notes}
+  onChange={(e) => setNotes(e.target.value)}
+/>
+
+<hr className="sidebar-divider" />
+
+<h2 className="sidebar-title">🎨 Theme</h2>
+        <textarea
+          className="notes-area"
+          placeholder="Write notes, timetable..."
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+        />
 
         <hr className="sidebar-divider" />
 
