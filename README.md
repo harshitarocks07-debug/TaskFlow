@@ -1,102 +1,56 @@
 # TaskFlow 🚀
 
-![TaskFlow Screenshot](TaskFlow.jpeg)
+A modern, feature-rich task management app built with React and deployed on Vercel.
 
-TaskFlow is a modern To-Do application built using React and Vite.
-
-The application helps users manage tasks efficiently with:
-- task creation
-- priority management
-- due dates
-- completion tracking
+🔗 **Live Demo:** [dotaskflow.vercel.app](https://dotaskflow.vercel.app)
 
 ---
 
-# Features
-
-## Core Features
-- Add tasks
-- Delete tasks
-- Mark tasks as complete
-- Undo completed tasks
-
-## Advanced Features
-- Priority selection
-  - High
-  - Medium
-  - Low
-
-- Due date selection
-- Modern responsive UI
-- Styled task cards
-- Gradient background design
-
----
-
-# Technologies Used
-
-- React
-- Vite
-- JavaScript
-- CSS
+## Features
+- **Due Today Notification** — Browser notification for tasks due today
+- **Add, Edit, Delete Tasks** — Full task management
+- **Priority Levels** — High, Medium, Low with color coding
+- **Categories** — Work, Personal, Study, Shopping + custom categories
+- **Due Dates** — Set deadlines with overdue indicators
+- **Due Today Alert** — Visual badge for tasks due today
+- **Search** — Find tasks instantly
+- **Filter by Priority** — View tasks by urgency
+- **Sort by Date** — Earliest deadline first
+- **Progress Bar** — Track completion percentage
+- **Completed Section** — Separate section for done tasks
+- **Clear All Completed** — One click cleanup
+- **Notes** — Sidebar notepad for quick notes & timetable
+- **Diary** — Daily journal with date stamp
+- **10 Color Themes** — Pink, Purple, Blue, Green, Orange, Red, Teal, Yellow, Indigo, Rose
+- **Dark Mode** — Easy on the eyes
+- **Local Storage** — Tasks persist after refresh
+- **Fully Responsive** — Works on mobile and desktop
 
 ---
 
-# Branches
+## Tech Stack
 
-## vibe_code_submission
-Contains the fully working To-Do application built using vibe coding workflow.
-
-## sdd_submission
-Contains Spec Driven Development documentation:
-- spec.md
-- design.md
-- tasks.md
+- **React** — Frontend framework
+- **CSS** — Custom styling with glassmorphism design
+- **Vite** — Build tool
+- **Vercel** — Deployment
+- **localStorage** — Data persistence
 
 ---
 
-# Project Structure
-
-```bash
-src/
-public/
-specs/
-```
-
----
-
-# How to Run
-
-Install dependencies:
+## Getting Started
 
 ```bash
 npm install
-```
-
-Run development server:
-
-```bash
 npm run dev
 ```
 
-Open in browser:
+---
 
-```bash
-http://localhost:5173
-```
+## Screenshots
+
+![TaskFlow Preview](./TaskFlow.png)
 
 ---
 
-# Future Improvements
-
-- Local storage support
-- Task filtering
-- Drag and drop tasks
-- Dark/light mode
-- Authentication system
-
----
-
-# Author
-
-Harshita Singh
+## Made by Harshita Singh
