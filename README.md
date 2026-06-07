@@ -7,7 +7,7 @@ A modern, feature-rich task management app built with React and deployed on Verc
 ---
 
 ## Features
-
+- **Due Today Notification** — Browser notification for tasks due today
 - **Add, Edit, Delete Tasks** — Full task management
 - **Priority Levels** — High, Medium, Low with color coding
 - **Categories** — Work, Personal, Study, Shopping + custom categories
