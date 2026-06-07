@@ -51,6 +51,29 @@ function App() {
   useEffect(() => { localStorage.setItem("diary", diary); }, [diary]);
 
   useEffect(() => {
+    const pending = tasks.filter((t) => !t.completed).length;
+    document.title = pending > 0 ? `(${pending}) TaskFlow 🚀` : "TaskFlow 🚀";
+  }, [tasks]);
+
+  useEffect(() => {
+    if ("Notification" in window) {
+      Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+          const today = new Date().toDateString();
+          tasks.forEach((task) => {
+            if (!task.completed && task.date && new Date(task.date).toDateString() === today) {
+              new Notification("🔔 TaskFlow", {
+                body: `"${task.text}" is due today!`,
+                icon: "https://dotaskflow.vercel.app/favicon.ico",
+              });
+            }
+          });
+        }
+      });
+    }
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem("theme", theme);
     if (!darkMode) document.body.style.background = themes[theme].bg;
   }, [theme, darkMode]);
@@ -189,7 +212,12 @@ function App() {
             </div>
           </div>
           <p>Priority: <span className={item.priority.toLowerCase()}>{item.priority}</span></p>
-          <p>Due Date: {item.date ? item.date : "Not set"}</p>
+          <p>
+            Due Date: {item.date ? item.date : "Not set"}
+            {item.date && new Date(item.date).toDateString() === new Date().toDateString() && (
+              <span className="due-today-badge">🔔 Due Today!</span>
+            )}
+          </p>
           <div className="buttons">
             <button className="complete-btn" onClick={() => completeTask(index)}>
               {item.completed ? "↩️" : "✅"}
